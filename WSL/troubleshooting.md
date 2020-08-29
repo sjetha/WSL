@@ -319,3 +319,8 @@ options = metadata,uid=1000,gid=1000,umask=0022
 ```
 
 Please note that adding this command will include metadata and modify the file permissions on the Windows files seen from WSL. Please see the [File System Permissions](./file-permissions.md) for more information.
+
+### "-6: export:"-related errors ###
+
+This happens at login with some shells including sh and pwsh due to a line in the /etc/profile.d/apps-bin-path.sh script that appends the windows path environment variable to the Linux PATH property. This can be fixed by either quoting it or by using chsh to change your default shell to a different shell at login, and the switch to sh or pwsh after logging in.
+
